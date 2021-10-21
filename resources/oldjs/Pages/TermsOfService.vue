@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo'
 
 export default {
     props: ['terms'],

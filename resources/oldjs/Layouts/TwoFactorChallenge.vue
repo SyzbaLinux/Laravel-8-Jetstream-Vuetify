@@ -1,8 +1,6 @@
 <template>
-    <jet-authentication-card>
-        <template #logo>
-            <jet-authentication-card-logo />
-        </template>
+    <v-card>
+
 
         <div class="mb-4 text-sm text-gray-600">
             <template v-if="! recovery">
@@ -14,17 +12,22 @@
             </template>
         </div>
 
-        <jet-validation-errors class="mb-4" />
-
         <form @submit.prevent="submit">
             <div v-if="! recovery">
-                <jet-label for="code" value="Code" />
-                <jet-input ref="code" id="code" type="text" inputmode="numeric" class="mt-1 block w-full" v-model="form.code" autofocus autocomplete="one-time-code" />
+                <v-text-field
+                    label="Code"
+                    ref="code" id="code" type="text" inputmode="numeric" class="mt-1 block w-full" v-model="form.code" autofocus autocomplete="one-time-code" />
             </div>
 
             <div v-else>
-                <jet-label for="recovery_code" value="Recovery Code" />
-                <jet-input ref="recovery_code" id="recovery_code" type="text" class="mt-1 block w-full" v-model="form.recovery_code" autocomplete="one-time-code" />
+                <v-text-field
+                    label="Recovery Code"
+                    ref="recovery_code"
+                    id="recovery_code"
+                    type="text"
+                    v-model="form.recovery_code"
+                    autocomplete="one-time-code"
+                />
             </div>
 
             <div class="flex items-center justify-end mt-4">
@@ -38,31 +41,17 @@
                     </template>
                 </button>
 
-                <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <v-btn class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Login
-                </jet-button>
+                </v-btn>
             </div>
         </form>
-    </jet-authentication-card>
+    </v-card>
 </template>
 
 <script>
-    import JetAuthenticationCard from '@/Jetstream/AuthenticationCard'
-    import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo'
-    import JetButton from '@/Jetstream/Button'
-    import JetInput from '@/Jetstream/Input'
-    import JetLabel from '@/Jetstream/Label'
-    import JetValidationErrors from '@/Jetstream/ValidationErrors'
 
     export default {
-        components: {
-            JetAuthenticationCard,
-            JetAuthenticationCardLogo,
-            JetButton,
-            JetInput,
-            JetLabel,
-            JetValidationErrors,
-        },
 
         data() {
             return {

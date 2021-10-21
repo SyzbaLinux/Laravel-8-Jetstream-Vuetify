@@ -7,7 +7,6 @@ import { App as InertiaApp, plugin as InertiaPlugin } from '@inertiajs/inertia-v
 import PortalVue from 'portal-vue';
 //add these two line
 import Vuetify from 'vuetify'
-import 'vuetify/dist/vuetify.min.css'
 
 Vue.mixin({ methods: { route } });
 Vue.use(InertiaPlugin);

@@ -1,10 +1,5 @@
 <template>
-    <jet-authentication-card>
-        <template #logo>
-            <jet-authentication-card-logo />
-        </template>
-
-        <jet-validation-errors class="mb-4" />
+    <v-card>
 
         <form @submit.prevent="submit">
             <div>
@@ -23,31 +18,18 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <v-btn :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Reset Password
-                </jet-button>
+                </v-btn>
             </div>
         </form>
-    </jet-authentication-card>
+    </v-card>
 </template>
 
 <script>
-    import JetAuthenticationCard from '@/Jetstream/AuthenticationCard'
-    import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo'
-    import JetButton from '@/Jetstream/Button'
-    import JetInput from '@/Jetstream/Input'
-    import JetLabel from '@/Jetstream/Label'
-    import JetValidationErrors from '@/Jetstream/ValidationErrors'
+
 
     export default {
-        components: {
-            JetAuthenticationCard,
-            JetAuthenticationCardLogo,
-            JetButton,
-            JetInput,
-            JetLabel,
-            JetValidationErrors
-        },
 
         props: {
             email: String,
