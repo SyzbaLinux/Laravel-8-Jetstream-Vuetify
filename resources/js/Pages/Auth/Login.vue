@@ -2,12 +2,8 @@
    <PublicLayout>
        <v-card class="mx-auto pa-5" max-width="500px">
            <v-card-title>
-               SignIn
+               <h1 class="font-weight-thin">SignIn</h1>
            </v-card-title>
-
-
-
-
            <form @submit.prevent="submit" class="pa-5">
                <div>
 
@@ -42,15 +38,27 @@
                        v-model="form.remember"
                    ></v-switch>
                </div>
+               <v-btn
+                   block
+                   btn-lg
+                   color="primary"
+                   :disabled="form.processing"
+                   :loading="form.processing"
+                   type="submit"
+               >
+                   Login
+               </v-btn>
 
-               <div>
-                   <v-btn block btn-lg  color="primary" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                       Login
-                   </v-btn>
-                   <br>
-                   <inertia-link class="mt-5"   :href="route('password.request')">
-                       Forgot your password?
-                   </inertia-link>
+               <div class="d-flex mt-10 justify-center">
+                   <div>
+                       <inertia-link class="mt-5"   :href="route('password.request')">
+                           Forgot your password?
+                       </inertia-link>
+                   </div>
+
+                   <div>
+                       <inertia-link class="mx-3" href="/register">Register</inertia-link>
+                   </div>
                </div>
            </form>
        </v-card>
